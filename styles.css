@@ -20,7 +20,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: -20px;
+  scroll-padding-top: 0px;
 }
 body {
   background: var(--w);
@@ -683,4 +683,11 @@ footer { background:var(--y);border-top:3px solid var(--bk);padding:18px 36px;di
   height: auto;
   object-fit: contain;
   display: block;
+}
+#process,
+#services,
+#personal,
+#work,
+#contact {
+  scroll-margin-top: -20px;
 }
