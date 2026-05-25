@@ -20,7 +20,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 0px;
+  scroll-padding-top: -50px;
 }
 body {
   background: var(--w);
@@ -53,10 +53,7 @@ body {
 
 /* ── NAV ─────────────────────────────── */
 nav {
-position: fixed;
-top: 0;
-z-index: 200;
-width: 100%;
+position: sticky; top: 0; z-index: 200;
   background: var(--bk);
   border-bottom: 3px solid var(--bk);
   display: flex; justify-content: space-between; align-items: center;
@@ -121,7 +118,6 @@ width: 100%;
   height: calc(100vh - 62px);
   border-bottom: 3px solid var(--bk);
   overflow: hidden;
-  margin-top: 62px;
 }
 
 /* Left panel */
