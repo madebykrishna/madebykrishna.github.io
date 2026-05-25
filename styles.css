@@ -557,7 +557,10 @@ footer { background:var(--y);border-top:3px solid var(--bk);padding:18px 36px;di
    ════════════════════════════════════════ */
 
 @media (max-width: 900px) {
-  /* Nav */
+ body {
+  zoom: 0.85;
+}
+   /* Nav */
   nav { padding: 12px 20px; }
   .hamburger { display: flex; }
   .nav-links {
