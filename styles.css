@@ -685,5 +685,5 @@ footer { background:var(--y);border-top:3px solid var(--bk);padding:18px 36px;di
   display: block;
 }
 section {
-  scroll-margin-top: 0px;
+  scroll-margin-top: 50px;
 }
