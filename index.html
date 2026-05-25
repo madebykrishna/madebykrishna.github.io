@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Krishna Sharma — Visual Designer. Carousels, social visuals, and brand graphics for creators and brands who want content that converts.">
+<title>Krishna Sharma &#8212; Visual Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── LIGHTBOX ───────────────────────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <div class="lb-backdrop" onclick="closeLB()"></div>
+  <div class="lb-content">
+    <button class="lb-close" onclick="closeLB()" aria-label="Close">&#x2715;</button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <div class="lb-bar">
+      <div>
+        <div class="lb-title" id="lb-title"></div>
+        <div class="lb-type"  id="lb-type"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CURSOR ─────────────────────────────── -->
+<div id="cur" aria-hidden="true"></div>
+
+<!-- ── NAV ───────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="34" height="34" viewBox="0 0 434.65 455.56" class="nav-logo-svg" style="display:block;flex-shrink:0;" aria-hidden="true"><path fill="#F5F2EC" d="M233.84,227.78c297.31,0,237.39,184.47-3.15,9.71,240.54,174.76,83.62,288.76-8.26,6,91.88,282.76-102.07,282.76-10.21,0-91.86,282.76-248.78,168.76-8.26-6-240.52,174.76-300.47-9.71-3.15-9.71-297.31,0-237.37-184.47,3.15-9.71-240.52-174.76-83.6-288.76,8.26-6-91.86-282.76,102.09-282.76,10.21,0,91.88-282.76,248.8-168.76,8.26,6,240.54-174.76,300.47,9.71,3.15,9.71Z"/></svg>
+    <span class="nav-logo-text">Krishna Sharma</span>
+  </a>
+  <button class="hamburger" id="ham" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navlinks" role="navigation">
+    <a href="#process" onclick="closeNav()">Process</a>
+    <a href="#services" onclick="closeNav()">Services</a>
+    <a href="#personal" onclick="closeNav()">Work</a>
+    <a href="#contact" class="cta" onclick="closeNav()">Let&#8217;s Talk &#8594;</a>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────── -->
+<section class="hero">
+  <!-- Left: text + mesh canvas -->
+  <div class="hero-left">
+    <canvas id="mesh-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-topbar">
+      <span class="hero-tag">Visual Designer &#183; Indore, IN</span>
+      <a href="#contact" class="hero-avail">
+        <div class="avail-dot"></div>Available for projects
+      </a>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="ht-line"><span class="ht-inner ht-0">Good</span></span>
+      <span class="ht-line"><span class="ht-inner ht-1">Design.</span></span>
+      <span class="ht-line"><span class="ht-inner ht-2">No</span></span>
+      <span class="ht-line"><span class="ht-inner ht-3 ht-blue">Excuses.</span></span>
+    </h1>
+
+    <p class="hero-subline">Design that hits different.</p>
+
+    <div class="hero-bottom-row">
+      <p class="hero-desc">Carousels, social visuals, and brand graphics for creators and brands who want content that actually converts &#8212; not just looks decent.</p>
+      <a href="#contact" class="hero-cta">Start a project &#8594;</a>
+    </div>
+  </div>
+
+  <!-- Right: logo animation + service links (hidden on mobile) -->
+  <div class="hero-right">
+    <div class="f-shape fs-1"></div>
+    <div class="f-shape fs-2"></div>
+    <div class="f-shape fs-3">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="f-shape fs-4">&#10022;</div>
+    <div class="f-shape fs-5">INDORE, IN &#8212; 2026</div>
+    <div class="f-shape fs-6">madebykrishna.github.io</div>
+
+    <div class="hero-logo-wrap">
+      <div class="hero-shape hs1"></div>
+      <div class="hero-shape hs2"></div>
+      <div class="hero-shape hs3"></div>
+      <div class="hero-shape hs4"></div>
+      <div class="logo-big-wrap"><svg width="220" height="220" viewBox="0 0 434.65 455.56" class="" style="display:block;flex-shrink:0;" aria-hidden="true"><path fill="#ffffff" d="M233.84,227.78c297.31,0,237.39,184.47-3.15,9.71,240.54,174.76,83.62,288.76-8.26,6,91.88,282.76-102.07,282.76-10.21,0-91.86,282.76-248.78,168.76-8.26-6-240.52,174.76-300.47-9.71-3.15-9.71-297.31,0-237.37-184.47,3.15-9.71-240.52-174.76-83.6-288.76,8.26-6-91.86-282.76,102.09-282.76,10.21,0,91.88-282.76,248.8-168.76,8.26,6,240.54-174.76,300.47,9.71,3.15,9.71Z"/></svg></div>
+    </div>
+
+    <!-- Hidden on mobile via CSS -->
+    <div class="hero-services-list">
+      <a href="#services" class="hs-item">Instagram Carousels <span class="hs-arrow">&#8594;</span></a>
+      <a href="#services" class="hs-item">Monthly Content Packs <span class="hs-arrow">&#8594;</span></a>
+      <a href="#services" class="hs-item">Brand Visuals &amp; Posters <span class="hs-arrow">&#8594;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONSTRUCTION TAPE ───────────────── -->
+<div class="tape-wrap" aria-hidden="true"></div>
+
+<!-- ── 01 PROCESS ──────────────────────── -->
+<div class="section-row reveal" id="process">
+  <div class="section-label-col">
+    <span class="section-num">01</span>
+    <span class="section-name">Process</span>
+    <img src="assets/logo-star.svg" class="section-logo" alt="" width="26" height="26">
+  </div>
+  <div class="section-content">
+    <div class="process-grid">
+      <div class="steps stagger">
+        <div class="step">
+          <div class="step-num-block sn1">01</div>
+          <div class="step-body">
+            <div class="step-title">You share your idea</div>
+            <div class="step-desc">Topic, tone, audience, brand colours. Takes 5 minutes on your end.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num-block sn2">02</div>
+          <div class="step-body">
+            <div class="step-title">I send a watermarked mockup</div>
+            <div class="step-desc">Your idea visualized &#8212; see the exact direction before committing.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num-block sn3">03</div>
+          <div class="step-body">
+            <div class="step-title">You approve, I deliver</div>
+            <div class="step-desc">Full project delivered. Revisions until it&#8217;s exactly right.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num-block sn4">04</div>
+          <div class="step-body">
+            <div class="step-title">Pay only after approval</div>
+            <div class="step-desc">Zero upfront. You pay once you&#8217;re happy. No risk on your side.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-side">
+        <div class="about-blob-wrap">
+          <div class="blob-deco"></div>
+          <div class="blob-deco2"></div>
+          <div class="about-blob">
+            <div class="blob-name">Krishna<br>Sharma</div>
+            <div class="blob-sub">Visual Designer &#183; Indore</div>
+          </div>
+        </div>
+        <p class="about-para">I design carousels and social visuals for creators and brands who want content that matches the quality of their work.</p>
+        <p class="about-para">My background is in <strong>poster design and editorial typography</strong> &#8212; your content won&#8217;t look like everyone else&#8217;s template.</p>
+        <div class="tags">
+          <span class="tag">Adobe Illustrator</span>
+          <span class="tag">Adobe Photoshop</span>
+          <span class="tag">Brand Design</span>
+          <span class="tag">Posters &amp; Visualization</span>
+          <span class="tag">Indore, IN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 02 SERVICES ─────────────────────── -->
+<div class="section-row reveal" id="services">
+  <div class="section-label-col">
+    <span class="section-num">02</span>
+    <span class="section-name">Services</span>
+    <img src="assets/logo-star.svg" class="section-logo" alt="" width="26" height="26">
+  </div>
+  <div class="section-content">
+    <div class="services-grid stagger">
+      <div class="service-card sc1">
+        <div class="service-icon-wrap"><img src="assets/logo-star.svg" alt="" width="46" height="46" style="display:block"></div>
+        <div class="service-name">Instagram Carousels</div>
+        <div class="service-desc">Educational, storytelling, and promo carousels designed to stop the scroll and get saves. 8&#8211;12 slides, fully on-brand.</div>
+      </div>
+      <div class="service-card sc2">
+        <div class="service-icon-wrap"><img src="assets/logo-star.svg" alt="" width="46" height="46" style="display:block"></div>
+        <div class="service-name">Monthly Content Packs</div>
+        <div class="service-desc">Consistent carousel content every month with a locked brand style. For creators who want every post to feel intentional.</div>
+      </div>
+      <div class="service-card sc3">
+        <div class="service-icon-wrap"><img src="assets/logo-star.svg" alt="" width="46" height="46" style="display:block"></div>
+        <div class="service-name">Brand Visuals &amp; Posters</div>
+        <div class="service-desc">One-off graphic design for launches, campaigns, or editorial use. Custom typography &#8212; nothing that looks like a template.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 03 PERSONAL WORK ────────────────── -->
+<div class="section-row reveal" id="personal">
+  <div class="section-label-col">
+    <span class="section-num">03</span>
+    <span class="section-name">Personal Work</span>
+    <img src="assets/logo-star.svg" class="section-logo" alt="" width="26" height="26">
+  </div>
+  <div class="section-content">
+    <div class="personal-grid stagger">
+
+      <!-- Paired: Beauty is Pain + Too Pretty to Hurt -->
+      <div class="p-card span2" onclick="openLB('assets/beauty_is_pain.png','Beauty is Pain','Poster &#183; Typography &#183; Photoshop')">
+        <div class="p-img-wrap" style="height:320px">
+          <img src="assets/beauty_is_pain.png" class="p-img" alt="Beauty is Pain — poster by Krishna Sharma">
+        </div>
+        <div class="p-info">
+          <div>
+            <div class="p-title">Beauty is Pain</div>
+            <div class="p-type">POSTER &#183; TYPOGRAPHY &#183; SERIES</div>
+          </div>
+          <div class="p-arrow">&#x2197;</div>
+        </div>
+      </div>
+
+      <div class="p-card span2" onclick="openLB('assets/too_pretty_to_hurt.png','Too Pretty to Hurt','Poster &#183; Typography &#183; Photoshop')">
+        <div class="p-img-wrap" style="height:320px">
+          <img src="assets/too_pretty_to_hurt.png" class="p-img" alt="Too Pretty to Hurt — poster by Krishna Sharma">
+        </div>
+        <div class="p-info">
+          <div>
+            <div class="p-title">Too Pretty to Hurt</div>
+            <div class="p-type">POSTER &#183; TYPOGRAPHY &#183; SERIES</div>
+          </div>
+          <div class="p-arrow">&#x2197;</div>
+        </div>
+      </div>
+
+      <!-- Overcome -->
+      <div class="p-card span2" onclick="openLB('assets/overcome.png','Overcome','Editorial Poster &#183; Photoshop')">
+        <div class="p-img-wrap" style="height:320px">
+          <img src="assets/overcome.png" class="p-img" alt="Overcome — editorial poster by Krishna Sharma">
+        </div>
+        <div class="p-info">
+          <div>
+            <div class="p-title">Overcome</div>
+            <div class="p-type">EDITORIAL &#183; TYPOGRAPHY</div>
+          </div>
+          <div class="p-arrow">&#x2197;</div>
+        </div>
+      </div>
+
+      <!-- Stop Looking Back -->
+      <div class="p-card span3" onclick="openLB('assets/stop_looking_back.png','Stop Looking Back','Retro Poster &#183; Photoshop')">
+        <div class="p-img-wrap" style="height:280px">
+          <img src="assets/stop_looking_back.png" class="p-img" alt="Stop Looking Back — retro poster by Krishna Sharma">
+        </div>
+        <div class="p-info">
+          <div>
+            <div class="p-title">Stop Looking Back</div>
+            <div class="p-type">RETRO POSTER &#183; COMPOSITION</div>
+          </div>
+          <div class="p-arrow">&#x2197;</div>
+        </div>
+      </div>
+
+      <!-- Spectrum -->
+      <div class="p-card span3" onclick="openLB('assets/spectrum.jpg','Spectrum','Editorial Poster &#183; Photoshop')">
+        <div class="p-img-wrap" style="height:280px">
+          <img src="assets/spectrum.jpg" class="p-img" alt="Spectrum — editorial poster by Krishna Sharma">
+        </div>
+        <div class="p-info">
+          <div>
+            <div class="p-title">Spectrum</div>
+            <div class="p-type">EDITORIAL &#183; COLOUR THEORY</div>
+          </div>
+          <div class="p-arrow">&#x2197;</div>
+        </div>
+      </div>
+
+    </div><!-- .personal-grid -->
+
+    <div class="personal-blurb">
+      <img src="assets/logo-star.svg" class="blurb-logo" alt="" width="44" height="44">
+      <p class="blurb-text">&#8220;These aren&#8217;t client projects &#8212; they&#8217;re experiments in texture, type, and composition. The same instincts go into every carousel I design, just aimed at saves and conversions instead.&#8221;</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── 04 CLIENT WORK ──────────────────── -->
+<div class="section-row reveal" id="work">
+  <div class="section-label-col">
+    <span class="section-num">04</span>
+    <span class="section-name">Client Work</span>
+    <img src="assets/logo-star.svg" class="section-logo" alt="" width="26" height="26">
+  </div>
+  <div class="section-content">
+    <div class="coming-soon-box">
+      <img src="assets/logo-star.svg" class="cs-logo" alt="" width="52" height="52">
+      <div class="cs-title">Currently Taking First Clients &#10022;</div>
+      <p class="cs-sub">Client work dropping here soon. In the meantime &#8212; see the personal work above, or get in touch and I&#8217;ll send samples directly.</p>
+      <a href="#contact" class="cs-badge">Available for Projects &#8594;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 05 CONTACT ────────────────────────── -->
+<div class="contact-section reveal" id="contact">
+  <div>
+    <p class="contact-eyebrow">05 &#8212; LET&#8217;S WORK TOGETHER</p>
+    <div class="contact-big">Got a<br><span class="hi">Project?</span></div>
+    <p style="font-family:var(--mono);font-size:11px;color:#555;margin-bottom:16px;letter-spacing:.06em">RESPONDS WITHIN 24 HOURS</p>
+    <a class="contact-email" href="mailto:krishnaamitsharma@outlook.com">krishnaamitsharma@outlook.com</a>
+  </div>
+  <div class="contact-cards">
+    <a class="contact-card" href="mailto:krishnaamitsharma@outlook.com">
+      <div><div class="cc-label">EMAIL</div><div class="cc-val">Send a message</div></div>
+      <div class="cc-arrow">&#8594;</div>
+    </a>
+    <a class="contact-card" href="#personal">
+      <div><div class="cc-label">VIEW WORK</div><div class="cc-val">See personal projects</div></div>
+      <div class="cc-arrow">&#8594;</div>
+    </a>
+    <a class="contact-card" href="mailto:krishnaamitsharma@outlook.com?subject=Free%20Mockup%20Request&body=Hi%20Krishna%2C%20I%20would%20love%20to%20see%20a%20free%20mockup%20for%20my%20content.">
+      <div><div class="cc-label">FREE MOCKUP</div><div class="cc-val">Request a sample</div></div>
+      <div class="cc-arrow">&#8594;</div>
+    </a>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <div class="footer-left">
+    <img src="assets/logo-star.svg" class="footer-logo" alt="" width="24" height="24">
+    <span class="footer-name">Krishna Sharma &#169; 2026</span>
+  </div>
+  <div class="footer-right">Visual Designer &#183; Indore, IN</div>
+</footer>
+
+<!-- ── SCRIPTS ───────────────────────────── -->
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cur');
+const isTouch = window.matchMedia('(pointer: coarse)').matches;
+if (!isTouch) {
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a,button,.p-card,.service-card,.step,.tag,.cs-badge,.coming-soon-box,.personal-blurb,.about-blob,.contact-card,.lb-close').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('big'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+  });
+}
+
+/* ── HAMBURGER ── */
+function toggleNav() {
+  const links = document.getElementById('navlinks');
+  const ham   = document.getElementById('ham');
+  const open  = links.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+}
+function closeNav() {
+  document.getElementById('navlinks').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('ham').setAttribute('aria-expanded', 'false');
+}
+
+/* ── LIGHTBOX ── */
+function openLB(src, title, type) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lb-img').src   = src;
+  document.getElementById('lb-title').innerHTML = title;
+  document.getElementById('lb-type').innerHTML  = type;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+/* ── PARTICLE MESH ── */
+(function () {
+  const canvas  = document.getElementById('mesh-canvas');
+  if (!canvas) return;
+  const ctx     = canvas.getContext('2d');
+  const heroEl  = document.querySelector('.hero-left');
+  const SPACING = 38, DOT_R = 1.8, INFLUENCE = 120, STOP_MS = 130;
+
+  let mouse = { x: -9999, y: -9999 };
+  let moving = false, lastMove = 0, dots = [];
+
+  function initDots() {
+    dots = [];
+    const cols = Math.ceil(canvas.width  / SPACING) + 2;
+    const rows = Math.ceil(canvas.height / SPACING) + 2;
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++)
+        dots.push({ ox: c*SPACING, oy: r*SPACING, x: c*SPACING, y: r*SPACING, vx: 0, vy: 0, glow: 0 });
+  }
+
+  function resize() {
+    const rect = heroEl.getBoundingClientRect();
+    canvas.width  = rect.width;
+    canvas.height = rect.height;
+    initDots();
+  }
+
+  function setMouse(cx, cy) {
+    const rect = heroEl.getBoundingClientRect();
+    mouse.x = cx - rect.left;
+    mouse.y = cy - rect.top;
+    lastMove = Date.now();
+    moving = true;
+  }
+
+  heroEl.addEventListener('mousemove',  e => setMouse(e.clientX, e.clientY));
+  heroEl.addEventListener('mouseleave', () => { moving = false; });
+  heroEl.addEventListener('touchmove',  e => { e.preventDefault(); setMouse(e.touches[0].clientX, e.touches[0].clientY); }, { passive: false });
+  heroEl.addEventListener('touchend',   () => { moving = false; });
+
+  function draw() {
+    if (moving && Date.now() - lastMove > STOP_MS) moving = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const d of dots) {
+      const dx  = d.x - (moving ? mouse.x : -9999);
+      const dy  = d.y - (moving ? mouse.y : -9999);
+      const dst = Math.sqrt(dx*dx + dy*dy);
+      const inf = Math.max(0, 1 - dst / INFLUENCE);
+      const i2  = inf * inf;
+      const push = i2 * 68;
+
+      let tx = d.ox, ty = d.oy;
+      if (moving && dst > 0.5 && inf > 0) { tx = d.ox + (dx/dst)*push; ty = d.oy + (dy/dst)*push; }
+
+      d.vx += (tx - d.x) * 0.10; d.vy += (ty - d.y) * 0.10;
+      d.vx *= 0.74;               d.vy *= 0.74;
+      d.x  += d.vx;               d.y  += d.vy;
+
+      /* colour trail: fast glow-up, slow decay */
+      const tgt   = moving ? i2 : 0;
+      const spd   = tgt > d.glow ? 0.32 : 0.020;
+      d.glow += (tgt - d.glow) * spd;
+
+      const t  = d.glow;
+      const R  = Math.round(10 + t*35);
+      const G  = Math.round(10 + t*53);
+      const B  = Math.round(10 + t*245);
+      const op = 0.13 + t*0.65;
+      const r  = DOT_R * (1 + t*2.1);
+
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, r, 0, Math.PI*2);
+      ctx.shadowColor = t > 0.04 ? `rgba(45,63,255,${(t*0.5).toFixed(2)})` : 'transparent';
+      ctx.shadowBlur  = t > 0.04 ? 10*t : 0;
+      ctx.fillStyle   = `rgba(${R},${G},${B},${op.toFixed(3)})`;
+      ctx.fill();
+      ctx.shadowBlur  = 0;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+
+/* ── SCROLL REVEAL ── */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ── STAGGER (JS-managed so hover transitions stay clean) ── */
+const stObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    Array.from(entry.target.children).forEach((child, i) => {
+      child.style.opacity   = '0';
+      child.style.transform = 'translateY(24px)';
+      setTimeout(() => {
+        child.style.transition = 'opacity .55s ease, transform .55s ease';
+        child.style.opacity    = '1';
+        child.style.transform  = 'none';
+        setTimeout(() => {
+          child.style.transition = '';
+          child.style.transform  = '';
+          child.style.opacity    = '';
+        }, 640);
+      }, i * 110);
+    });
+    stObs.unobserve(entry.target);
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.stagger').forEach(el => {
+  Array.from(el.children).forEach(c => { c.style.opacity = '0'; });
+  stObs.observe(el);
+});
+</script>
+</body>
+</html>
