@@ -39,10 +39,10 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navlinks" role="navigation">
-    <a href="#process" onclick="closeNav()">Process</a>
-    <a href="#services" onclick="closeNav()">Services</a>
-    <a href="#personal" onclick="closeNav()">Work</a>
-    <a href="#contact" class="cta" onclick="closeNav()">Let&#8217;s Talk &#8594;</a>
+    <a href="#process" onclick="scrollToSection(event, 'process')">Services</a>
+    <a href="#services" onclick="scrollToSection(event, 'services')">Services</a>
+    <a href="#personal" onclick="scrollToSection(event, 'personal')">Work</a>
+    <a href="#contact" class="cta" onclick="scrollToSection(event, 'contact')">Let&#8217;s Talk &#8594;</a>
   </div>
 </nav>
 
@@ -499,6 +499,25 @@ document.querySelectorAll('.stagger').forEach(el => {
   Array.from(el.children).forEach(c => { c.style.opacity = '0'; });
   stObs.observe(el);
 });
+function scrollToSection(event, id) {
+  event.preventDefault();
+
+  const element = document.getElementById(id);
+
+  const offset = 20;
+
+  const top =
+    element.getBoundingClientRect().top +
+    window.pageYOffset -
+    offset;
+
+  window.scrollTo({
+    top,
+    behavior: "smooth"
+  });
+
+  closeNav();
+}
 </script>
 </body>
 </html>
