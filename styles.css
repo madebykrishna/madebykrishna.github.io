@@ -18,7 +18,10 @@
 
 /* ── RESET ─────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
 body {
   background: var(--w);
   color: var(--bk);
