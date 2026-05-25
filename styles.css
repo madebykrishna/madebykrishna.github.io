@@ -684,6 +684,4 @@ footer { background:var(--y);border-top:3px solid var(--bk);padding:18px 36px;di
   object-fit: contain;
   display: block;
 }
-.section-row { {
-  scroll-margin-top: 200px;
-}
+
