@@ -633,8 +633,8 @@ footer { background:var(--y);border-top:3px solid var(--bk);padding:18px 36px;di
 .personal-grid { grid-template-columns: repeat(2, 1fr); }
 .p-card.span2 { grid-column: span 1; }
 .p-card.span3 { grid-column: span 2; }
-  .p-img-wrap[style*="320px"] { height: 170px !important; }
-.p-img-wrap[style*="280px"] { height: 170px !important; }
+.p-img-wrap[style*="320px"] { height: 220px !important; }
+.p-img-wrap[style*="280px"] { height: 200px !important; }
   /* Contact */
   .contact-section { grid-template-columns: 1fr; gap: 28px; padding: 40px 20px; }
   .contact-big { font-size: clamp(44px, 10vw, 64px); }
