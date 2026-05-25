@@ -630,9 +630,9 @@ footer { background:var(--y);border-top:3px solid var(--bk);padding:18px 36px;di
   .services-grid { grid-template-columns: 1fr; gap: 10px; }
 
   /* Personal work - 2 cols on tablet */
-  .personal-grid { grid-template-columns: repeat(2, 1fr); }
-  .p-card.span2 { grid-column: span 1; }
-  .p-card.span3 { grid-column: span 2; }
+  .personal-grid {
+  grid-template-columns: 1fr;
+}
   .p-img-wrap[style*="320px"] { height: 220px !important; }
   .p-img-wrap[style*="280px"] { height: 200px !important; }
 
